@@ -2,11 +2,11 @@ apiVersion: 1.0.0
 metadata:
   generateName: golang-
 projects:
-  - name: goex
+  - name: goytchat
     source:
       type: git
-      location: 'https://github.com/demetera/goex'
-    clonePath: src/github.com/demetera/goex
+      location: 'https://github.com/demetera/goytchat'
+    clonePath: src/github.com/demetera/goytchat
 components:
   - type: chePlugin
     id: golang/go/latest
@@ -35,7 +35,7 @@ commands:
       - type: exec
         component: go-cli
         command: go get -d && go run main.go
-        workdir: '${CHE_PROJECTS_ROOT}/src/github.com/demetera/goex'
+        workdir: '${CHE_PROJECTS_ROOT}/src/github.com/demetera/goytchat'
   - name: 1.2 Stop outyet
     actions:
       - type: exec
@@ -46,31 +46,31 @@ commands:
       - type: exec
         component: go-cli
         command: go test
-        workdir: '${CHE_PROJECTS_ROOT}/src/github.com/demetera/goex'
+        workdir: '${CHE_PROJECTS_ROOT}/src/github.com/demetera/goytchat'
   - name: '2.1 xenisa :: install dependencies'
     actions:
       - type: exec
         component: go-cli
         command: go mod download
-        workdir: '${GOPATH}/src/github.com/demetera/goex'
+        workdir: '${GOPATH}/src/github.com/demetera/goytchat'
   - name: '2.2 xenisa :: run'
     actions:
       - type: exec
         component: go-cli
         command: go run main.go
-        workdir: '${GOPATH}/src/github.com/demetera/goex'
+        workdir: '${GOPATH}/src/github.com/demetera/goytchat'
   - name: '2.3 xenisa :: build'
     actions:
       - type: exec
         component: go-cli
         command: go build
-        workdir: '${GOPATH}/src/github.com/demetera/goex'
+        workdir: '${GOPATH}/src/github.com/demetera/goytchat'
   - name: '2.4 xenisa :: test'
     actions:
       - type: exec
         component: go-cli
         command: go test ./...
-        workdir: '${GOPATH}/src/github.com/demetera/goex'
+        workdir: '${GOPATH}/src/github.com/demetera/goytchat'
   - name: Run current file
     actions:
       - type: exec
